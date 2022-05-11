@@ -1,16 +1,21 @@
 import ProfileScreen from "./screens/ProfileScreen";
+import HomeScreen from "./screens/HomeScreen";
+
 import "./App.css";
 import { useState } from "react";
 import NavigationBar from "./components/NavigationBar";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userChoice, setUserChoice] = useState("");
+
   return (
     <div className="App">
       <div className="outer-container">
-        {isLoggedIn && <NavigationBar />}
+        {/* {isLoggedIn && <NavigationBar />} */}
         <div className="screens">
-          <ProfileScreen />
+          {!userChoice && <ProfileScreen setUserChoice={setUserChoice} />}
+          {userChoice && <HomeScreen user={userChoice} />}
         </div>
       </div>
     </div>
