@@ -3,7 +3,6 @@ import HomeScreen from "./screens/HomeScreen";
 
 import "./App.css";
 import { useState } from "react";
-import NavigationBar from "./components/NavigationBar";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);

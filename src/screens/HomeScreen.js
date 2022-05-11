@@ -4,10 +4,11 @@ const HomeScreen = ({ user }) => {
   const [favorites, setFavorites] = useState(
     user.favorites ? [...user.favorites] : []
   );
-  console.log("favorites", favorites);
+
   const addFavoriteHandler = (contentId) => {
     setFavorites([...favorites, contentId]);
   };
+
   return (
     <div>
       <div>Hello {user.toUpperCase()}</div>
