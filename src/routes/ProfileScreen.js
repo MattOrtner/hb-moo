@@ -1,12 +1,20 @@
 import React, { useEffect, useState } from "react";
 import ProfileButton from "../components/ProfileButton";
 import USERS from "../data/dummy-data";
+import { useNavigate } from "react-router-dom";
+
 const ProfileScreen = ({ setUserChoice }) => {
+  const navigation = useNavigate();
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
     if (USERS) setUsers([...USERS]);
   }, []);
+
+  const signInHandler = (userName) => {
+    setUserChoice(userName);
+    navigation("home");
+  };
 
   return (
     <div className="container">
@@ -16,7 +24,7 @@ const ProfileScreen = ({ setUserChoice }) => {
         {users ? (
           users.map((user) => (
             <ProfileButton
-              setUserChoice={setUserChoice}
+              signInHandler={signInHandler}
               key={user.id}
               user={user}
             />
