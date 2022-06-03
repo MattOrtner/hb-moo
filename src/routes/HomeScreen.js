@@ -1,38 +1,33 @@
 import React, { useState } from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import { Outlet, Link, useLocation } from "react-router-dom";
 import LoadingScreen from "./LoadingScreen";
+import FavoritesScreen from "./FavoritesScreen";
 
-const HomeScreen = ({ user }) => {
+const HomeScreen = () => {
+  let location = useLocation();
+  console.log("location.state.user.name", location.state.user.name);
   const [loading, setLoading] = useState(true);
   setTimeout(() => {
     setLoading(false);
-  }, 1400);
+  }, 1500);
 
-  return (
-    <>
-      {loading ? (
-        <LoadingScreen />
-      ) : (
-        <div className="homeScreen-container">
-          <div>Hello {user.toUpperCase()}</div>
-          <div className="navBar-container">
-            <nav className="nav-bar">
-              <NavLink className="navlink" to="home">
-                home
-              </NavLink>
-              <NavLink className="navlink" to="favorites">
-                favorites
-              </NavLink>
-              <NavLink className="navlink" to="settings">
-                settings
-              </NavLink>
-            </nav>
-          </div>
+  function FullScreen() {
+    return (
+      <div className="home-screen-container">
+        <nav style={{ display: "flex", flexDirection: "column" }}>
+          <Link to="favorites">Favorites</Link>
+          <Link to="settings">Settings</Link>
+        </nav>
+        <div className="right-side-home">
           <Outlet />
         </div>
-      )}
-    </>
-  );
+      </div>
+    );
+  }
+
+  let LandingScreen = loading ? <LoadingScreen /> : <FullScreen />;
+
+  return <>{LandingScreen}</>;
 };
 
 export default HomeScreen;

@@ -3,11 +3,32 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import UserChoiceScreen from "./routes/UserChoiceScreen";
+import HomeScreen from "./routes/HomeScreen";
+import SettingsScreen from "./routes/SettingsScreen";
+import FavoritesScreen from "./routes/FavoritesScreen";
+import InitialContentScreen from "./routes/InitialContent";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<UserChoiceScreen />} />
+      <Route path="home" element={<HomeScreen />}>
+        <Route index element={<InitialContentScreen />} />
+        <Route path="favorites" elemen t={<FavoritesScreen />} />
+        <Route path="settings" element={<SettingsScreen />} />
+      </Route>
+      <Route
+        path="*"
+        element={
+          <main style={{ padding: "1rem" }}>
+            <p>There's nothing here!</p>
+          </main>
+        }
+      />
+    </Routes>
+  </BrowserRouter>,
   document.getElementById("root")
 );
 
