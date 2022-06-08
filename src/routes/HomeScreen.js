@@ -4,7 +4,7 @@ import LoadingScreen from "./LoadingScreen";
 
 const HomeScreen = () => {
   let location = useLocation();
-  console.log("location.state.user.name", location.state.user.name);
+  // console.log("location.state.user.name", location.state.user.name);
   const [loading, setLoading] = useState(true);
   setTimeout(() => {
     setLoading(false);
@@ -14,12 +14,16 @@ const HomeScreen = () => {
     return (
       <div className="home-screen-container">
         <nav style={{ display: "flex", flexDirection: "column" }}>
-          <Link to="/favorites">Favorites</Link>
-          <Link to="/settings">Settings</Link>
+          <Link style={{ color: "white" }} to="/favorites">
+            Favorites
+          </Link>
+          <Link style={{ color: "white" }} to="/settings">
+            Settings
+          </Link>
         </nav>
-        <div className="right-side-home">
-          <Outlet />
-        </div>
+        {/* <div className="right-side-home"> */}
+        <Outlet />
+        {/* </div> */}
       </div>
     );
   }

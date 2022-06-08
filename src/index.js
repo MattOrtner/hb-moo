@@ -13,12 +13,13 @@ import InitialContentScreen from "./routes/InitialContent";
 ReactDOM.render(
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<UserChoiceScreen />} />
-      <Route path="home" element={<HomeScreen />}>
+      {/* <Route path="/" element={<UserChoiceScreen />} /> */}
+      <Route path="/" element={<HomeScreen />}>
         <Route index element={<InitialContentScreen />} />
         <Route path="favorites" element={<FavoritesScreen />} />
         <Route path="settings" element={<SettingsScreen />} />
       </Route>
+
       <Route
         path="*"
         element={
