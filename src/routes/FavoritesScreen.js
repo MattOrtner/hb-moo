@@ -2,7 +2,7 @@ import React from "react";
 
 const FavoritesScreen = () => {
   return (
-    <div
+    <h1
       style={{
         display: "flex",
         justifyContent: "center",
@@ -10,7 +10,7 @@ const FavoritesScreen = () => {
       }}
     >
       This is the Favorites Screen
-    </div>
+    </h1>
   );
 };
 

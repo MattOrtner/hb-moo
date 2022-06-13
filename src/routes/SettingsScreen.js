@@ -2,7 +2,7 @@ import React from "react";
 
 const SettingsScreen = () => {
   return (
-    <div
+    <h1
       style={{
         display: "flex",
         justifyContent: "center",
@@ -10,7 +10,7 @@ const SettingsScreen = () => {
       }}
     >
       This is the Settings Screen
-    </div>
+    </h1>
   );
 };
 
