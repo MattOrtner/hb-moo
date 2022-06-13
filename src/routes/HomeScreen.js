@@ -13,12 +13,18 @@ const HomeScreen = () => {
   function FullScreen() {
     return (
       <div className="home-screen-container">
-        <nav style={{ display: "flex", flexDirection: "column" }}>
-          <Link style={{ color: "white" }} to="/favorites">
+        <nav className="nav-bar">
+          <Link style={{ color: "white", paddingBottom: 30 }} to="/home">
+            Home
+          </Link>
+          <Link style={{ color: "white", paddingBottom: 30 }} to="/favorites">
             Favorites
           </Link>
-          <Link style={{ color: "white" }} to="/settings">
+          <Link style={{ color: "white", paddingBottom: 30 }} to="/settings">
             Settings
+          </Link>
+          <Link style={{ color: "white", paddingBottom: 30 }} to="/search">
+            Search
           </Link>
         </nav>
         {/* <div className="right-side-home"> */}

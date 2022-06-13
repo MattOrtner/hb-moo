@@ -1,23 +1,26 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
+import "./App.css";
 import reportWebVitals from "./reportWebVitals";
+
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import UserChoiceScreen from "./routes/UserChoiceScreen";
 import HomeScreen from "./routes/HomeScreen";
 import SettingsScreen from "./routes/SettingsScreen";
 import FavoritesScreen from "./routes/FavoritesScreen";
 import InitialContentScreen from "./routes/InitialContent";
+import SearchScreen from "./routes/SearchScreen";
 
 ReactDOM.render(
   <BrowserRouter>
     <Routes>
       {/* <Route path="/" element={<UserChoiceScreen />} /> */}
       <Route path="/" element={<HomeScreen />}>
-        <Route index element={<InitialContentScreen />} />
+        <Route path="home" element={<InitialContentScreen />} />
         <Route path="favorites" element={<FavoritesScreen />} />
         <Route path="settings" element={<SettingsScreen />} />
+        <Route path="search" element={<SearchScreen />} />
       </Route>
 
       <Route
